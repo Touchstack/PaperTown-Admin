@@ -1,68 +1,117 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  font-family: Dosis-Regular, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Varela",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-body {
-  margin: 0;
+@font-face {
+  font-family: "Dosis-Bold";
+  src: url("../src/assets/fonts/Dosis-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Dosis-ExtraBold";
+  src: url("../src/assets/fonts/Dosis-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Dosis-Light";
+  src: url("../src/assets/fonts/Dosis-Light.ttf");
+}
+@font-face {
+  font-family: "Dosis-ExtraLight";
+  src: url("../src/assets/fonts/Dosis-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "Dosis-Medium";
+  src: url("../src/assets/fonts/Dosis-Medium.ttf");
+}
+@font-face {
+  font-family: "Dosis-Regular";
+  src: url("../src/assets/fonts/Dosis-Regular.ttf");
+}
+@font-face {
+  font-family: "Dosis-SemiBold";
+  src: url("../src/assets/fonts/Dosis-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Varela-Regular";
+  src: url("../src/assets/fonts/Varela-Regular.ttf");
+}
+
+.marquee1 {
+  background-color: transparent;
+  align-items: flex-start;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: relative;
+  animation: marquee 15s infinite alternate ease-in-out;
+  animation-play-state: running;
+  top: 110%;
+  transform: translate(-100%, 0%);
+}
+.marquee2 {
+  background-color: transparent;
+  align-items: flex-start;
+  position: relative;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: marquee 10s infinite alternate ease-in-out;
+  animation-play-state: running;
+  top: 110%;
+  transform: translate(-100%, 0%);
+}
+
+.marquee span {
+  display: inline-block;
+  direction: ltr;
+  margin-top: 15px;
+}
+.text-carousel {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.text {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.left-icon,
+.right-icon {
+  font-size: 2rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@keyframes marquee {
+  0% {
+    transform: translate(0, 0);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    transform: translate(-100%, 0);
   }
 }

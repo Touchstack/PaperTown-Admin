@@ -1,0 +1,13 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="lucide:briefcase" clip-path="url(#clip0_874_9209)">
+<g id="Group">
+<path id="Vector" d="M16.6547 5.83789H3.3323C2.41257 5.83789 1.66699 6.58347 1.66699 7.5032V15.8297C1.66699 16.7494 2.41257 17.495 3.3323 17.495H16.6547C17.5745 17.495 18.32 16.7494 18.32 15.8297V7.5032C18.32 6.58347 17.5745 5.83789 16.6547 5.83789Z" stroke="#393939" stroke-width="1.6653" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M13.3243 17.4936V4.17116C13.3243 3.7295 13.1489 3.30592 12.8365 2.99362C12.5242 2.68131 12.1007 2.50586 11.659 2.50586H8.32839C7.88672 2.50586 7.46315 2.68131 7.15084 2.99362C6.83854 3.30592 6.66309 3.7295 6.66309 4.17116V17.4936" stroke="#393939" stroke-width="1.6653" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_874_9209">
+<rect width="19.9837" height="19.9837" fill="white" transform="translate(0 0.0078125)"/>
+</clipPath>
+</defs>
+</svg>
