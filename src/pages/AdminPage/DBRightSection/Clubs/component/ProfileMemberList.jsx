@@ -75,13 +75,13 @@ const ProfileMemberList = () => {
           <h1 className="font-Bold text-4xl">Member List</h1>
           <div className="flex gap-4">
             <button
-              className="inline-flex text-[#BDBDBD] font-Medium rounded-full w-[110px] h-[50px] py-2 text-[#000000] bg-[#F2F2F2] justify-center items-center"
+              className="inline-flex text-[#BDBDBD] font-Medium rounded-full w-[110px] h-[50px] py-2 bg-[#F2F2F2] justify-center items-center"
               onClick={() => setShowModal4(true)}
             >
               <span className="inline-flex mr-2"></span> Remove
             </button>
             <button
-              className="inline-flex text-[#DB2E78] font-Bold text-lg rounded-full w-[170px] py-2 text-[#000000] justify-center items-center border border-[#DB2E78]"
+              className="inline-flex text-[#DB2E78] font-Bold text-lg rounded-full w-[170px] py-2 justify-center items-center border border-[#DB2E78]"
               onClick={() => setShowModal(true)}
             >
               <span className="inline-flex mr-2"></span>+ Add member
@@ -172,7 +172,7 @@ const ProfileMemberList = () => {
             <span className="lg:ml-[7%] md:ml-[20%]">13</span>
             <span className="lg:ml-[15%] md:ml-[20%]">Grade 6</span>
           </div>
-          <p className="lg:hidden md:hidden inline-block font-Bold font-SemiBold">
+          <p className="lg:hidden md:hidden inline-block font-SemiBold">
             Fortune Adeleke
           </p>
           {/* end  */}
@@ -264,7 +264,7 @@ const ProfileMemberList = () => {
           <div className="flex justify-center items-center">
             <button
               type="button"
-              className="opacity-35 text-[#FFF] bg-[#DF327B] hover:bg-[#A12356] mt-2 font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
+              className="text-[#FFF] bg-[#DF327B] hover:bg-[#A12356] mt-2 font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
             >
               <p
                 className="text-center font-bold text-lg text-[#FFF] font-Bold leading-[130.5%] mb-3"
@@ -343,7 +343,7 @@ const ProfileMemberList = () => {
             <div className="flex justify-center items-center">
               <button
                 type="button"
-                className="opacity-35 text-[#FFF] bg-[#DF327B] mt-6 hover:bg-[#A12356] mt-2 font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
+                className="text-[#FFF] bg-[#DF327B] mt-6 hover:bg-[#A12356] font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
               >
                 {/* <ClipLoader color="#FFF" size={20} /> */}
                 <p
@@ -378,12 +378,12 @@ const ProfileMemberList = () => {
         </p>
         <div className="flex  justify-center items-center gap-2 mb-4">
           <button
-            className="inline-flex text-[#BDBDBD] font-Medium rounded-full w-[150px] h-[45px] py-2 text-[#000000] bg-[#F2F2F2] justify-center items-center"
+            className="inline-flex text-[#BDBDBD] font-Medium rounded-full w-[150px] h-[45px] py-2 bg-[#F2F2F2] justify-center items-center"
             onClick={() => openModal(5)}
           >
             <span className="inline-flex mr-2"></span> Remove
           </button>
-          <button className="inline-flex text-[#FFF] font-Bold text-lg rounded-full w-[150px] h-[45px] py-2 text-[#000000] justify-center items-center bg-[#DB2E78]">
+          <button className="inline-flex text-[#FFF] font-Bold text-lg rounded-full w-[150px] h-[45px] py-2 justify-center items-center bg-[#DB2E78]">
             <span className="inline-flex mr-2"></span>Cancel
           </button>
         </div>

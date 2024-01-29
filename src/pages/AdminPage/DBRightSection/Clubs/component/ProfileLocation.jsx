@@ -1,4 +1,3 @@
-import React from "react";
 import Location from "../../../../../assets/Images/LocationSymbol.svg";
 import Meeting from "../../../../../assets/Images/MeetingIcon.svg";
 import Phone from "../../../../../assets/Images/LocalPhone.svg";

@@ -3,12 +3,44 @@ import RoundedPink from "../../../../../assets/Images/PinkPlus.svg";
 import RectanglePic from "../../../../../assets/Images/Rectangle.svg";
 import Calender from "../../../../../assets/Images/bi_calendar.svg";
 import Tick from "../../../../../assets/Images/Tick.svg";
-import Modal from "../../../../../components/Modal/Modal"
+import Modal from "../../../../../components/Modal/Modal";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
 const NewClubSchedule = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
+  const openModal = (modalNumber) => {
+    // Close all modals first
+    setShowModal(false);
+    setShowModal2(false);
+
+    // Open the desired modal
+    switch (modalNumber) {
+      case 1:
+        setShowModal(true);
+        break;
+      case 2:
+        setShowModal2(true);
+        break;
+      default:
+        break;
+    }
+  };
+  const closeModal = (modalNumber) => {
+    switch (modalNumber) {
+      case 1:
+        setShowModal(false);
+        break;
+      case 2:
+        setShowModal2(false);
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div>
       <p className="text-[#393939] pt-4 text-sm pl-12">Upload cover photo</p>
@@ -16,7 +48,7 @@ const NewClubSchedule = () => {
         <div className="m-12 mt-1 font-Bold lg:text-4xl md:text-3xl sm:text-3xl text-3xl max-w-[9000px] text-[#B6B6B6] relative">
           <img src={RectanglePic} alt="Pencil.svg" />
 
-          <button className="gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-flex font-SemiBold text-lg rounded-full w-[170px] text-sm py-2 text-[#B6B6B6] justify-center items-center rounded-md border border-[#B6B6B6] p-4 ">
+          <button className="gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-flex font-SemiBold w-[170px] text-sm py-2 text-[#B6B6B6] justify-center items-center rounded-md border border-[#B6B6B6] p-4 ">
             <span className="inline-flex"></span>
             <img src={PhotoCover} alt="Pencil.svg" />
             Upload image
@@ -116,13 +148,13 @@ const NewClubSchedule = () => {
 
       <div className="flex ml-32 mt-16 mb-10">
         <button
-          className="inline-flex text-[#FFFFFF] font-Bold text-lg rounded-full w-[340px] h-[45px] text-sm py-2 text-[#DF327B] justify-center items-center bg-[#DB2E78]"
+          className="inline-flex text-[#FFFFFF] font-Bold rounded-full w-[340px] h-[45px] text-sm py-2 justify-center items-center bg-[#DB2E78]"
           onClick={() => setShowModal(true)}
         >
           <span className="inline-flex mr-2"></span>Save Changes
         </button>
       </div>
-      <Modal isVisible={showModal}>
+      <Modal isVisible={showModal} onClose={() => closeModal(1)}>
         <div className="flex justify-center items-center pb-5">
           <img src={Tick} alt="Tick.svg" />
         </div>

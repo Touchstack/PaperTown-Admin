@@ -1,4 +1,3 @@
-import React from "react";
 import Bell from "../../../../../assets/Images/NotificationBell.svg";
 import AmakaImg from "../../../../../assets/Images/Amaka.svg";
 import ArrowIcon from "../../../../../assets/Images/ArrowLeft.svg";

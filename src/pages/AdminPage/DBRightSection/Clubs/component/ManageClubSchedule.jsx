@@ -13,7 +13,7 @@ const ManageClubSchedule = () => {
         <div className="m-12 mt-1 font-Bold lg:text-4xl md:text-3xl sm:text-3xl text-3xl max-w-[9000px] text-[#FFFFFF] relative">
           <img src={PhotoCover} alt="Pencil.svg" />
 
-          <button className="gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-flex text-[#FFFFFF] font-SemiBold text-lg rounded-full w-[170px] text-sm py-2 text-[#FFF] justify-center items-center rounded-md border border-white p-4 ">
+          <button className="gap-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 inline-flex text-[#FFFFFF] font-SemiBold w-[170px] text-sm py-2 justify-center items-center rounded-md border border-white p-4 ">
             <span className="inline-flex mr-2 "></span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ const ManageClubSchedule = () => {
           className="inline-flex mb-5 text-[#FFFFFF] font-Bold  rounded-full w-[170px] text-sm py-2  justify-center items-center bg-[#DB2E78]"
           onClick={handleButtonClick}
         >
-         Save Changes
+          Save Changes
         </button>
       </div>
     </div>
