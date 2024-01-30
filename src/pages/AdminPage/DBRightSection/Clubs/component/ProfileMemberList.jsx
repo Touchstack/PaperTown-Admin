@@ -1,5 +1,5 @@
 import Profile from "../../../../../assets/Images/Profile.png";
-import Modal from "../../../../../components/Modal/Modal";
+import Modal from "../../../../../Component/Modal/Modal";
 import Tick from "../../../../../assets/Images/Tick.svg";
 import Warning from "../../../../../assets/Images/Warning.svg";
 import { useState } from "react";
@@ -122,12 +122,12 @@ const ProfileMemberList = () => {
             <span className="lg:ml-[15%] md:ml-[20%]">Grade 6</span>
           </div>
 
-          <p className="lg:hidden md:hidden inline-block font-Bold">
+          <p className="lg:hidden md:hidden inline-block font-SemiBold">
             Fortune Adeleke
           </p>
           {/* end  */}
-          {/* start  */}
-          <div className="flex lg:gap-3 bg-[#F9F9F9] text-center py-4 items-center mb-5 lg:mx-auto font-SemiBold">
+          {/* start */}
+          <div className="flex bg-[#F9F9F9]  gap-3 text-center items-center mb-5 py-4 font-SemiBold">
             <input
               id="helper-checkbox"
               aria-describedby="helper-checkbox-text"
@@ -147,7 +147,7 @@ const ProfileMemberList = () => {
             <span className="lg:ml-[7%] md:ml-[20%]">15</span>
             <span className="lg:ml-[15%] md:ml-[20%]">Grade 6</span>
           </div>
-          <p className="lg:hidden md:hidden inline-block font-Bold">
+          <p className="lg:hidden md:hidden inline-block font-SemiBold">
             Fortune Adeleke
           </p>
           {/* end  */}
@@ -177,7 +177,7 @@ const ProfileMemberList = () => {
           </p>
           {/* end  */}
           {/* start  */}
-          <div className="flex lg:gap-3 bg-[#F9F9F9] py-4 text-center items-center mb-5 lg:mx-auto font-SemiBold">
+          <div className="flex bg-[#F9F9F9]  gap-3 text-center items-center mb-5 py-4 font-SemiBold">
             <input
               id="helper-checkbox"
               aria-describedby="helper-checkbox-text"
@@ -197,7 +197,7 @@ const ProfileMemberList = () => {
             <span className="lg:ml-[7%] md:ml-[20%]">8</span>
             <span className="lg:ml-[15%] md:ml-[20%]">Grade 6</span>
           </div>
-          <p className="lg:hidden md:hidden inline-block font-Bold">
+          <p className="lg:hidden md:hidden inline-block font-SemiBold">
             Fortune Adeleke
           </p>
           {/* end  */}
@@ -264,7 +264,7 @@ const ProfileMemberList = () => {
           <div className="flex justify-center items-center">
             <button
               type="button"
-              className="text-[#FFF] bg-[#DF327B] hover:bg-[#A12356] mt-2 font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
+              className="opacity-35 text-[#FFF] bg-[#DF327B] hover:bg-[#A12356] mt-2 font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
             >
               <p
                 className="text-center font-bold text-lg text-[#FFF] font-Bold leading-[130.5%] mb-3"
@@ -343,7 +343,7 @@ const ProfileMemberList = () => {
             <div className="flex justify-center items-center">
               <button
                 type="button"
-                className="text-[#FFF] bg-[#DF327B] mt-6 hover:bg-[#A12356] font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
+                className="opacity-35 text-[#FFF] bg-[#DF327B] mt-6 hover:bg-[#A12356] font-Regular rounded-full p-3 md:w-[350px] w-[300px] h-[48px] mb-4"
               >
                 {/* <ClipLoader color="#FFF" size={20} /> */}
                 <p
