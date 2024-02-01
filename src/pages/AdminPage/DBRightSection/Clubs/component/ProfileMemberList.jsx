@@ -1,5 +1,5 @@
 import Profile from "../../../../../assets/Images/Profile.png";
-import Modal from "../../../../../Component/Modal/Modal";
+import Modal from "../../../../../components/Modal/Modal";
 import Tick from "../../../../../assets/Images/Tick.svg";
 import Warning from "../../../../../assets/Images/Warning.svg";
 import { useState } from "react";

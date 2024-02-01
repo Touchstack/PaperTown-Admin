@@ -18,7 +18,11 @@ const NewClubHeader = () => {
           <img src={Bell} alt="NotificationBell.svg" />
           <img src={AmakaImg} alt="Amaka.svg" />
           <p className="md:text-[15px]">Amaka Ndubisi </p>
-          <img src={Arrow} alt="ArrowUp.svg" className="mt-2 sm:w-[15px] md:w-[20px]" />
+          <img
+            src={Arrow}
+            alt="ArrowUp.svg"
+            className="mt-2 sm:w-[15px] md:w-[20px]"
+          />
         </div>
       </div>
     </div>

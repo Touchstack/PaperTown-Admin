@@ -35,8 +35,8 @@ const ProfileHero = () => {
         <img
           src={ChildrenPic}
           alt="Children.svg"
-          className="mx-auto max-w-full h-auto" // Center the image and make it responsive
-          style={{ maxWidth: "900px" }} // Set a maximum width (adjust as needed)
+          className="mx-auto max-w-full h-auto"
+          style={{ maxWidth: "900px" }}
         />
       </div>
 

@@ -55,14 +55,19 @@ const NewClubSchedule = () => {
           </button>
         </div>
       </div>
-      <div className="md:inline-flex justify-center items-center img-fluid mx-8 mb-20">
-        <div className="py-14 px-8 lg:ml-14">
-          <h3 className="flex font-Bold lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000000]">
+      <div className="flex flex-wrap justify-center">
+        <div className="py-12 px-8 lg:ml-14">
+          <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:flex lg:items-center lg:justify-between lg:text-left text-center py-4 text-[#000000]">
             Meeting Schedule
-            <span className="ml-24 mt-3">
-              <img src={RoundedPink} alt="PinkPlus.svg" />
+            <span className="lg:ml-4 mt-3 lg:mt-0 md:mt-0 md:ml-2 md:mb-2 md:justify-center sm:ml-2 sm:mb-2 sm:justify-center">
+              <img
+                src={RoundedPink}
+                alt="PinkPlus.svg"
+                className="inline-block"
+              />
             </span>
           </h3>
+
           <div className="py-6">
             <div className="font-Regular max-w-[470px] lg:text-xl md:text-lg sm:text-lg text-lg lg:text-left md:text-left text-center">
               <form name="contact" method="post">
@@ -113,34 +118,30 @@ const NewClubSchedule = () => {
           </div>
         </div>
 
-        <div className="inline-flex justify-center items-center img-fluid mx-8 mb-20">
-          <div className="py-14 lg:ml-14">
-            <h3 className="font-Bold mb-8 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
-              Schedule Summary
-            </h3>
-            <div className="flex text-[#393939] text-lg gap-6 mt-10 font-Medium leading-6 tracking-wider text-left spacing-4">
-              Wednesday
-              <span className="text-[#393939] text-lg">3 pm–5 pm</span>
-              <span className="font-Bold text-[#DB2E78] text-sm mt-1 ml-4">
-                Remove
-              </span>
-            </div>
-            <div className="flex text-[#393939] text-lg gap-12 mt-6 font-Medium leading-6 tracking-wider text-left spacing-4">
-              Friday
-              <span className="flex text-[#393939] text-lg ml-4">
-                3 pm–5 pm
-              </span>
-              <span className="font-Bold text-[#DB2E78] text-sm mt-1 ml-[-4px]">
-                Remove
-              </span>
-            </div>
-            <div className="flex text-[#393939]  text-lg gap-10 mt-6 font-Medium leading-6 tracking-wider text-left spacing-4">
-              Saturday
-              <span className="text-[#393939] text-lg">12 pm–2 pm</span>
-              <span className="font-Bold text-[#DB2E78] text-sm mt-1">
-                Remove
-              </span>
-            </div>
+        <div className="py-14 lg:ml-14 mt-2">
+          <h3 className="font-Bold mb-8 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
+            Schedule Summary
+          </h3>
+          <div className="flex text-[#393939] text-lg gap-6 mt-10 font-Medium leading-6 tracking-wider text-left spacing-4">
+            Wednesday
+            <span className="text-[#393939] text-lg">3 pm–5 pm</span>
+            <span className="font-Bold text-[#DB2E78] text-sm mt-1 ml-4">
+              Remove
+            </span>
+          </div>
+          <div className="flex text-[#393939] text-lg gap-12 mt-10 font-Medium leading-6 tracking-wider text-left spacing-4">
+            Friday
+            <span className="flex text-[#393939] text-lg ml-4">3 pm–5 pm</span>
+            <span className="font-Bold text-[#DB2E78] text-sm mt-1 ml-[-4px]">
+              Remove
+            </span>
+          </div>
+          <div className="flex text-[#393939] text-lg gap-10 mt-10 font-Medium leading-6 tracking-wider text-left spacing-4">
+            Saturday
+            <span className="text-[#393939] text-lg">12 pm–2 pm</span>
+            <span className="font-Bold text-[#DB2E78] text-sm mt-1">
+              Remove
+            </span>
           </div>
         </div>
       </div>
