@@ -55,7 +55,7 @@ const NewClubSchedule = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-wrap ">
         <div className="py-12 px-8 lg:ml-14">
           <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:flex lg:items-center lg:justify-between lg:text-left text-center py-4 text-[#000000]">
             Meeting Schedule
@@ -118,7 +118,7 @@ const NewClubSchedule = () => {
           </div>
         </div>
 
-        <div className="py-14 lg:ml-14 mt-2">
+        <div className="py-14 px-8 lg:ml-14 mt-2">
           <h3 className="font-Bold mb-8 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
             Schedule Summary
           </h3>

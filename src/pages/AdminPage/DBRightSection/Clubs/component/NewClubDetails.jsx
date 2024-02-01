@@ -3,7 +3,7 @@ const NewClubDetails = () => {
     <div className="container mx-auto rounded-md py-4">
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4">
         {/* School Details */}
-        <div className="py-12 px-8 lg:ml-14">
+        <div className="py-12 px-8 lg:ml-14 pr-0">
           <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
             School Details
           </h3>
