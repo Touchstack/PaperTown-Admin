@@ -91,11 +91,6 @@ const NewClubSchedule = () => {
                       placeholder="Wednesday"
                       className="block w-[175px] tracking-wider h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                     />
-                    <img
-                      src={Calender}
-                      alt="Pencil.svg"
-                      className="absolute right-3 mt-2 top-1/2 transform -translate-y-1/2"
-                    />
                   </div>
                   <div className="relative z-0 w-full mb-6 group text-sm tracking-wider font-Medium text-[#393939] ">
                     End time
