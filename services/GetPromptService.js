@@ -9,7 +9,7 @@ export const getAllPrompt = async () => {
           "Content-Type": "application/json",
         },
       });
-      return res;
+      return res.data.data;
     } catch (err) {
       console.error("Error getting all propmt:", err);
       return err;

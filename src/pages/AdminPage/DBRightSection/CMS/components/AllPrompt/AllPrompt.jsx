@@ -1,14 +1,27 @@
 import { HiChevronLeft} from 'react-icons/hi2';
 import { promptTypes } from '../../../../../../../ConstantData';
 import AllPromtCard from '../AllPromptCard/AllPromtCard';
-import { PiSlidersHorizontalThin } from "react-icons/pi";
+//import { PiSlidersHorizontalThin } from "react-icons/pi";
 import PropTypes from 'prop-types';
+import { getAllCategories } from '../../../../../../../services/GetCategoriesService';
+import { useEffect, useState } from 'react';
 
 const AllPrompt = ({ onGoBack }) => {
+  const [category, setcategory] = useState([]);
+  
+
+
+  useEffect(() => { 
+   getAllCategories().then((res) => {
+        console.log(res.data)
+        setcategory(res.data)
+    });
+ }, [])
 
   const handleGoBack = () => {
     onGoBack();
   };
+
 
   return (
     <div className="flex flex-col">
@@ -19,17 +32,17 @@ const AllPrompt = ({ onGoBack }) => {
           {/* PropTypes and filter section */}
           <div className='flex hover:cursor-pointer flex-col md:flex-row items-center justify-between mb-10'>
             <div className='flex flex-row items-center gap-3'>
-              {promptTypes.map((promptType) => (
-                <div key={promptType.id} className='bg-[#7272721A] rounded-full w-[110px] h-[44px] text-[#000] flex items-center justify-center mb-2 md:mb-0'>
-                  {promptType.msg}
+              {category.map((categories) => (
+                <div key={categories._id} className='bg-[#7272721A] rounded-full w-[110px] h-[44px] text-[#000] flex items-center justify-center mb-2 md:mb-0'>
+                  {categories.name}
                 </div>
               ))}
             </div>
 
-            <div className='w-[110px] h-[44px] flex items-center justify-center rounded-full border-[1px] border-[#393939] text-[#000] gap-3 cursor-pointer mt-3 md:mt-0'>
+            {/* <div className='w-[110px] h-[44px] flex items-center justify-center rounded-full border-[1px] border-[#393939] text-[#000] gap-3 cursor-pointer mt-3 md:mt-0'>
               <PiSlidersHorizontalThin />
               Filter
-            </div>
+            </div> */}
           </div>
           {/* PropTypes and filter section */}
 
