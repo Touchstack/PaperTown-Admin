@@ -53,9 +53,7 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
             description : data.description,
             submission_guidelines : data.submissionGuidelines,
             resources : data.resources,
-            age: [
-              values
-            ],
+            age: values,
             category : {
               id :  selectedCategory._id,
               name : selectedCategory.name

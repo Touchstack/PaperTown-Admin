@@ -24,7 +24,7 @@ const PromptCard = ({ onClick }) => {
           <div key={prompt._id} className="flex-shrink-0 w-[207px] h-[155px] rounded-[16px] border-[1px] border-[#E8E8E8]  p-5 mb-5" onClick={onClick}>
             <div className="flex flex-row gap-2 text-[6.99px]">
              <div style={{ backgroundColor: gradeColors[colorIndex] }} className="w-[47px] h-[19px] text-[#fff] rounded-[26px] flex items-center justify-center">
-                Grade 6-12
+                Age {prompt?.age?.[0]} - {prompt?.age?.[1]} 
               </div>
 
               <div className="w-[47px] h-[19px] border-[0.538px] text-[#000] border-[#000] rounded-[26px] flex items-center justify-center">
