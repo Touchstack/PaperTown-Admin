@@ -5,11 +5,19 @@ import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 import { getAllCategories } from "../../../../../../../services/GetCategoriesService";
 import { createPrompt } from "../../../../../../../services/CreatePromptService";
+import Slider from 'react-slider';
+import '../../../../../.././App.css'
+
+
+const MIN = 6;
+const MAX = 18;
+
 
 const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
   const [loading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([])
   const [selectedCategory, setselectedCategory] = useState({})
+  const [values, setValues] = useState([MIN, MAX])
 
 
   useEffect(() => {
@@ -45,8 +53,8 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
             description : data.description,
             submission_guidelines : data.submissionGuidelines,
             resources : data.resources,
-            gardes: [
-              data.grade
+            age: [
+              values
             ],
             category : {
               id :  selectedCategory._id,
@@ -67,8 +75,9 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
         }
  
       };
-
-
+  
+      console.log('values: ', values)
+  
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-[60] flex items-center justify-center px-5 py-5">
       <div className="w-[500px] max-h-[100vh] bg-[#fff] rounded-[24px] flex flex-col p-5 overflow-y-auto">
@@ -119,16 +128,27 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
               htmlFor="grade"
               className="text-lg font-medium text-gray-800"
             >
-              Eligible grades
+              Age range
             </label>
-            <input
+              
+            <p>{values[0]} - {values[1]}</p>
+            
+             <Slider 
+               className={"slider"}
+               value={values}
+               onChange={setValues}
+               min={MIN}
+               max={MAX}
+               />
+
+            {/* <input
               {...register("grade", { required: "Grades are required" })}
               type="grade"
               id="grade"
               name="grade"
               placeholder="Enter grade range"
               className="mt-1 p-3 w-full bg-[#EFF3F4] border border-gray-300 rounded-[10px] outline-none focus:border-none"
-            />
+            /> */}
             {errors?.grade && (
               <p className="text-red-500 text-sm mt-2">
                 {errors?.grade?.message}
