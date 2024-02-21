@@ -1,6 +1,6 @@
 import axios from "axios"; 
 
-export const baseURL = "https://papertown.onrender.com";
+const baseURL = "https://papertown.onrender.com";
 
 export const getAllCategories = async () => {
     try {
