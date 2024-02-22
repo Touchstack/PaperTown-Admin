@@ -1,11 +1,22 @@
 import PropTypes from "prop-types";
 import { IoCloseSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
+import { getAllCategories } from "../../../../../../../services/GetCategoriesService";
 
 const AddNewPrompt = ({ isVisible, onClose }) => {
   const [loading, setIsLoading] = useState(false);
+  const [categories, setCategories] = useState([])
+
+
+  useEffect(() => {
+      getAllCategories().then((res) =>{
+         console.log(res.data);
+         setCategories(res.data)
+      })
+  }, [])
+  
 
   const {
     register,
@@ -53,9 +64,11 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
               <option value="" disabled>
                 Select category
               </option>
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              {/* Add more options as needed */}
+              {categories.map(category => (
+                  <option key={category._id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
             </select>
 
             {errors.category && (
