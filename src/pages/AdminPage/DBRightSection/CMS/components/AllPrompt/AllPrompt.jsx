@@ -53,8 +53,8 @@ const AllPrompt = ({ onGoBack }) => {
   };
 
   const handleFilterClick = () => {
-    fetchPrompts();
-    setSelectedCategoryId(null);
+    setSelectedCategoryId(null); // Reset selected category ID
+    fetchPrompts(); // Fetch all prompts
   };
 
   const handleCategoryClick = (categoryId) => {
@@ -122,7 +122,13 @@ const AllPrompt = ({ onGoBack }) => {
             </div>
           </div>
 
-          <AllPromptCard data={promptData} onClick={handlePromptCardClick} />
+          {promptData.length === 0 ? (
+            <div className="flex justify-center items-center mb-[60px]">
+                <p className="text-5xl">No Prompt Writing Data</p>
+            </div>
+          ) : (
+            <AllPromptCard data={promptData} onClick={handlePromptCardClick} />
+          )}
         </>
       )}
     </div>

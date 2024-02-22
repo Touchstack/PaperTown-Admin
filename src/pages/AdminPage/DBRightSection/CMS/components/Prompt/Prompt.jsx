@@ -83,11 +83,15 @@ const Prompt = () => {
                   </p>
                 </div>
               </div>
-
+  
               {/* Cards */}
               {loading ? (
                 <div className="flex items-center justify-center mb-10">
                   <ClipLoader color="#B44DB8" loading={loading} size={35} />
+                </div>
+              ) : promptData.length === 0 ? (
+                <div className="flex justify-center items-center mb-[60px]">
+                  <p className="text-5xl">No Prompt Writing Data</p>
                 </div>
               ) : (
                 <div className='mb-10 max-w-[800px]'>
@@ -95,7 +99,7 @@ const Prompt = () => {
                 </div>
               )}
               {/* Cards */}
-
+  
               {/* Add new prompt */}
               <div className='flex justify-end mx-[20%]'>
                 <p className='flex items-center text-[#DF327B] font-[600] cursor-pointer' onClick={openModal}>
@@ -107,19 +111,19 @@ const Prompt = () => {
             </section>
           </>
         )}
-
+  
         {singlePrompt && !defaultState && (
           <SinglePrompt onGoBack={handleGoBack} promptId={clickedPromptId} />
         )}
-
+  
         {showAllPrompt && !defaultState && (
           <AllPrompt onGoBack={handleGoBack} />
         )}
-
+  
         {isPromptModalVisible &&
           <AddNewPrompt isVisible={isPromptModalVisible} onClose={closeModal} onSuccess={handleSuccessModalOpen} />
         }
-
+  
         {isSuccessModalVisible && 
           <Modal isVisible={isSuccessModalVisible} text={"Prompt added"} onClose={closeSuccessModal} />
         }
