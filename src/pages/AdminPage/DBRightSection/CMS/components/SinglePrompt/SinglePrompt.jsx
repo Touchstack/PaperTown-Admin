@@ -49,7 +49,7 @@ const SinglePrompt = ({ onGoBack, promptId }) => {
 
             <div className="flex gap-2 text-[6.99px] mb-10">
               <div className="w-[87px] h-[36px] text-[#fff] text-[10px] md:text-[13px] bg-[#52B4AE] rounded-[26px] flex items-center justify-center">
-                Grade 6-12
+                Age {promptData?.age?.[0]} - {promptData?.age?.[1]}
               </div>
 
               <div className="w-[71px] h-[36px text-[10px] md:text-[13px] border-[1px] font-[700] text-[#000] border-[#000] rounded-[26px] flex items-center justify-center">

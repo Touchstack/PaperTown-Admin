@@ -81,47 +81,49 @@ const AllPrompt = ({ onGoBack }) => {
 
   return (
     <div className="flex flex-col">
-      <div onClick={handleGoBack} className='flex flex-row items-center gap-3 text-[#040A1D] font-[700] cursor-pointer mb-10'>
-        <HiChevronLeft />
-        <p className='text-[26px]'>All prompts</p>
-      </div>
-
-      <div className='flex hover:cursor-pointer flex-col md:flex-row items-center justify-between mb-10'>
-        <div className='flex flex-row items-center gap-3'>
-          {category?.map((categories) => (
-            <div 
-              key={categories?._id} 
-              className={`rounded-full w-[110px] h-[44px] text-[#000] flex items-center justify-center mb-2 md:mb-0 ${
-                selectedCategoryId === categories?._id
-                  ? "bg-[#7c7a7a1a]" // Change background color if selected
-                  : "bg-gray-50"
-              }`}
-              onClick={() => handleCategoryClick(categories?._id)}
-            >
-              {categories?.name}
-            </div>
-          ))}
+      {!singlePromptId && (
+        <div onClick={handleGoBack} className='flex flex-row items-center gap-3 text-[#040A1D] font-[700] cursor-pointer mb-10'>
+          <HiChevronLeft />
+          <p className='text-[26px]'>All prompts</p>
         </div>
-
-        <div 
-          className='w-[110px] h-[44px] flex items-center justify-center rounded-full border-[1px] border-[#393939] text-[#000] gap-3 cursor-pointer mt-3 md:mt-0'
-          onClick={handleFilterClick}
-        >
-          <PiSlidersHorizontalThin />
-          Filter
-        </div>
-      </div>
+      )}
 
       {loading ? ( 
         <div className="flex items-center justify-center mb-[20px]">
           <ClipLoader color="#B44DB8" loading={loading} size={35} />
         </div>
+      ) : singlePromptId ? (
+        <SinglePrompt onGoBack={handleGoBack} promptId={singlePromptId} />
       ) : (
-        singlePromptId ? (
-          <SinglePrompt onGoBack={handleGoBack} promptId={singlePromptId} />
-        ) : (
+        <>
+          <div className='flex hover:cursor-pointer flex-col md:flex-row items-center justify-between mb-10'>
+            <div className='flex flex-row items-center gap-3'>
+              {category?.map((categories) => (
+                <div 
+                  key={categories?._id} 
+                  className={`rounded-full w-[110px] h-[44px] text-[#000] flex items-center justify-center mb-2 md:mb-0 ${
+                    selectedCategoryId === categories?._id
+                      ? "bg-[#7c7a7a1a]" // Change background color if selected
+                      : "bg-gray-50"
+                  }`}
+                  onClick={() => handleCategoryClick(categories?._id)}
+                >
+                  {categories?.name}
+                </div>
+              ))}
+            </div>
+
+            <div 
+              className='w-[110px] h-[44px] flex items-center justify-center rounded-full border-[1px] border-[#393939] text-[#000] gap-3 cursor-pointer mt-3 md:mt-0'
+              onClick={handleFilterClick}
+            >
+              <PiSlidersHorizontalThin />
+              Filter
+            </div>
+          </div>
+
           <AllPromptCard data={promptData} onClick={handlePromptCardClick} />
-        )
+        </>
       )}
     </div>
   );
