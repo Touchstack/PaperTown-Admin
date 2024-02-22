@@ -4,14 +4,14 @@ export const baseURL = "https://papertown.onrender.com";
 
 export const deletePrompt = async (id) => {
     try {
-      const res = await axios.delete(`${baseURL}/api/prompt/${id}`, {
+      const res = await axios.delete(`${baseURL}/prompts/${id}`, {
         headers: {
           "Content-Type": "application/json",
         },
       });
       return res;
     } catch (err) {
-      console.error("Error creating propmt:", err);
+      console.error("Error deleting propmt:", err);
       return err;
     }
   };

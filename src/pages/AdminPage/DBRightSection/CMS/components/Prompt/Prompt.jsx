@@ -6,7 +6,9 @@ import AllPrompt from '../AllPrompt/AllPrompt';
 import SinglePrompt from "../SinglePrompt/SinglePrompt";
 import Modal from '../Modal/Modal';
 import { getAllPrompt } from '../../../../../../../services/GetPromptService';
+import { deletePrompt } from '../../../../../../../services/DeletePromptService'
 import { ClipLoader } from 'react-spinners';
+import DeleteModal from '../Modal/DeleteModal';
 
 const Prompt = () => {
   const [isPromptModalVisible, setIsPromptModalVisible] = useState(false);
@@ -16,6 +18,18 @@ const Prompt = () => {
   const [promptData, setPromptData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [clickedPromptId, setClickedPromptId] = useState("");
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+  const [promptToDelete, setPromptToDelete] = useState(null);
+  
+  const handleGoBack = () => {
+    // If singlePrompt is true, go back to the default state
+    if (singlePrompt) {
+      setSinglePrompt(false);
+      setClickedPromptId(" ");
+    } else if (showAllPrompt) {
+      setShowAllPrompt(false);
+    }
+  };
 
   useEffect(() => {
     setLoading(true); // Start loading
@@ -28,7 +42,7 @@ const Prompt = () => {
         console.error("Error fetching prompts:", error);
         setLoading(false); // Stop loading on error
       });
-  }, []);
+  }, [deleteConfirmation]);
 
   const openModal = () => {
     setIsPromptModalVisible(true);
@@ -39,15 +53,7 @@ const Prompt = () => {
     setClickedPromptId(promptId);
   };
 
-  const handleGoBack = () => {
-    // If singlePrompt is true, go back to the default state
-    if (singlePrompt) {
-      setSinglePrompt(false);
-      setClickedPromptId(" ");
-    } else if (showAllPrompt) {
-      setShowAllPrompt(false);
-    }
-  };
+  
 
   const closeModal = () => {
     setIsPromptModalVisible(false);
@@ -61,6 +67,37 @@ const Prompt = () => {
   const closeSuccessModal = () => {
     setIsSuccessModalVisible(false);
   };
+
+   // Function to handle delete confirmation
+   const handleDeleteConfirmation = (promptId) => {
+    setPromptToDelete(promptId); // Store the prompt id to be deleted
+    setDeleteConfirmation(true); // Show the delete confirmation modal
+  };
+
+  // Function to confirm delete action
+  const handleConfirmDelete = () => {
+    deletePrompt(promptToDelete)
+      .then((res) => {
+        if(res.status === 200) {
+        //console.log("Prompt deleted successfully", res);
+        //fetchPrompts(); // Refetch prompts after deletion
+        setDeleteConfirmation(false); // Close the delete confirmation modal
+        // alert('Prompt Deleted successfully')
+        } else {
+         alert(res?.response?.data?.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting prompt:", error);
+      });
+  };
+
+  // Function to cancel delete action
+    const handleCancelDelete = () => {
+      setDeleteConfirmation(false); // Close the delete confirmation modal
+      setPromptToDelete(null); // Clear the prompt id to be deleted
+    };
+
 
   // If all states are false, default state to show is Writing prompts section
   const defaultState = !singlePrompt && !showAllPrompt;
@@ -95,7 +132,7 @@ const Prompt = () => {
                 </div>
               ) : (
                 <div className='mb-10 max-w-[800px]'>
-                  <PromptCard data={promptData} onClick={handlePromptCardClick} />
+                  <PromptCard data={promptData} deletePrompt={handleDeleteConfirmation} onClick={handlePromptCardClick}  />
                 </div>
               )}
               {/* Cards */}
@@ -109,6 +146,16 @@ const Prompt = () => {
               </div>
               {/* Add new prompt */}
             </section>
+
+            {/* Delete confirmation modal */}
+              {deleteConfirmation && (
+                <DeleteModal
+                  isVisible={deleteConfirmation}
+                  text="Are you sure you want to delete this prompt ?"
+                  onClose={handleCancelDelete}
+                  onConfirm={handleConfirmDelete}
+                />
+              )}
           </>
         )}
   

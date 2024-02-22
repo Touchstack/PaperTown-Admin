@@ -92,10 +92,14 @@ const AllPrompt = ({ onGoBack }) => {
     const handleConfirmDelete = () => {
       deletePrompt(promptToDelete)
         .then((res) => {
-          // Handle success, e.g., refetch prompts
-          console.log("Prompt deleted successfully", res);
+          if(res.status === 200) {
+          //console.log("Prompt deleted successfully", res);
           fetchPrompts(); // Refetch prompts after deletion
           setDeleteConfirmation(false); // Close the delete confirmation modal
+          // alert('Prompt Deleted successfully')
+          } else {
+           alert(res?.response?.data?.message);
+          }
         })
         .catch((error) => {
           console.error("Error deleting prompt:", error);
@@ -165,9 +169,9 @@ const AllPrompt = ({ onGoBack }) => {
           {deleteConfirmation && (
             <DeleteModal
               isVisible={deleteConfirmation}
-              text="Are you sure you want to delete this prompt?"
+              text="Are you sure you want to delete this prompt ?"
               onClose={handleCancelDelete}
-             //onConfirm={handleConfirmDelete}
+              onConfirm={handleConfirmDelete}
             />
           )}
 
