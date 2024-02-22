@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { HiChevronLeft } from 'react-icons/hi2';
 import { HiCalendar } from 'react-icons/hi2';
 import PropTypes from 'prop-types';
-import { getPromptById } from '../../../../../../../services/GetPromptByIdService';
+import { getPromptById } from '../../../../../../../services/GetPromptByIDService';
 import { ClipLoader } from 'react-spinners';
 
 const SinglePrompt = ({ onGoBack, promptId }) => {

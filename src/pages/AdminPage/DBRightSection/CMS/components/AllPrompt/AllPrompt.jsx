@@ -8,7 +8,8 @@ import AllPromptCard from '../AllPromptCard/AllPromtCard';
 import { getAllCategories } from '../../../../../../../services/GetCategoriesService';
 import { getAllPrompt } from '../../../../../../../services/GetPromptService'
 import { getPromptByCategoryId} from '../../../../../../../services/GetPromptByCategoryService'
-
+import  { deletePrompt } from '../../../../../../../services/DeletePromptService'
+import DeleteModal from '../Modal/DeleteModal';
 
 const AllPrompt = ({ onGoBack }) => {
   const [category, setCategory] = useState([]);
@@ -16,6 +17,8 @@ const AllPrompt = ({ onGoBack }) => {
   const [promptData, setPromptData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+  const [promptToDelete, setPromptToDelete] = useState(null);
 
   useEffect(() => { 
     getAllCategories()
@@ -79,6 +82,33 @@ const AllPrompt = ({ onGoBack }) => {
     onGoBack();
   };
 
+    // Function to handle delete confirmation
+    const handleDeleteConfirmation = (promptId) => {
+      setPromptToDelete(promptId); // Store the prompt id to be deleted
+      setDeleteConfirmation(true); // Show the delete confirmation modal
+    };
+  
+    // Function to confirm delete action
+    const handleConfirmDelete = () => {
+      deletePrompt(promptToDelete)
+        .then((res) => {
+          // Handle success, e.g., refetch prompts
+          console.log("Prompt deleted successfully", res);
+          fetchPrompts(); // Refetch prompts after deletion
+          setDeleteConfirmation(false); // Close the delete confirmation modal
+        })
+        .catch((error) => {
+          console.error("Error deleting prompt:", error);
+        });
+    };
+
+    // Function to cancel delete action
+      const handleCancelDelete = () => {
+        setDeleteConfirmation(false); // Close the delete confirmation modal
+        setPromptToDelete(null); // Clear the prompt id to be deleted
+      };
+
+
   return (
     <div className="flex flex-col">
       {!singlePromptId && (
@@ -121,14 +151,26 @@ const AllPrompt = ({ onGoBack }) => {
               Filter
             </div>
           </div>
+          {/* PropTypes and filter section */}
 
           {promptData.length === 0 ? (
             <div className="flex justify-center items-center mb-[60px]">
                 <p className="text-5xl">No Prompt Writing Data</p>
             </div>
           ) : (
-            <AllPromptCard data={promptData} onClick={handlePromptCardClick} />
+            <AllPromptCard data={promptData} deletePrompt={handleDeleteConfirmation} onPromptClick={handlePromptCardClick} />
           )}
+
+          {/* Delete confirmation modal */}
+          {deleteConfirmation && (
+            <DeleteModal
+              isVisible={deleteConfirmation}
+              text="Are you sure you want to delete this prompt?"
+              onClose={handleCancelDelete}
+             //onConfirm={handleConfirmDelete}
+            />
+          )}
+
         </>
       )}
     </div>
