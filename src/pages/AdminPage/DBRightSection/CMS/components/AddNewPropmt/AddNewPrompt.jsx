@@ -74,7 +74,7 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
  
       };
   
-      console.log('values: ', values)
+      //console.log('values: ', values)
   
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-[60] flex items-center justify-center px-5 py-5">
@@ -104,7 +104,7 @@ const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
               onChange={e => saveCategory(e?.target?.value)}
             >
               {/* Add your options here */}
-              <option value="" disabled>
+              <option value="">
                 Select category
               </option>
               {categories.map(category => (

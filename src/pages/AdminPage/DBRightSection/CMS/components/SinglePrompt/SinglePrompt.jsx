@@ -39,7 +39,7 @@ const SinglePrompt = ({ onGoBack, promptId }) => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col">
+          <div className="flex flex-col ml-10">
             <p className="mb-2">{promptData?.description}</p>
 
             <div className="flex flex-row items-center gap-2 mb-3">
