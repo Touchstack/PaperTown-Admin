@@ -2,9 +2,9 @@ import axios from "axios";
 
 export const baseURL = "https://papertown.onrender.com";
 
-export const createPrompt = async () => {
+export const createPrompt = async (data) => {
     try {
-      const res = await axios.post(`${baseURL}/api/prompts/create`, {
+      const res = await axios.post(`${baseURL}/api/prompts/create`, data, {
         headers: {
           "Content-Type": "application/json",
         },

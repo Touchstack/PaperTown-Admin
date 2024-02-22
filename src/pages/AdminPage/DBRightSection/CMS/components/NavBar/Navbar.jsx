@@ -3,10 +3,11 @@ import Home from '../Home/Home';
 import News from "../News/News";
 import WriteNow from "../WriteNow/WriteNow";
 import WritersRoom from "../WritersRoom/WritersRoom";
+import Prompt from '../Prompt/Prompt';
 
 
 const Navbar = () => {
-  const tabs = ["Home", "Writer's Room", "Write Now", "News"];
+  const tabs = ["Home", "Writer's Room", "Write Now", "News", "Prompts"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleTabClick = (tab) => {
@@ -50,6 +51,11 @@ const Navbar = () => {
       {activeTab === "News" && (
         <div>
            <News />
+        </div>
+      )}
+      {activeTab === "Prompts" && (
+        <div>
+           <Prompt />
         </div>
       )}
     </div>

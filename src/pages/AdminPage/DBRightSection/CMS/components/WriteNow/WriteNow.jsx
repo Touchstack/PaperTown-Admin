@@ -1,26 +1,13 @@
 import { useState } from 'react';
-import { HiMiniChevronLeft, HiMiniChevronRight, HiPlus, HiCalendar } from "react-icons/hi2";
-import PromptCard from '../PromptCard/PromptCard';
-import AddNewPrompt from '../AddNewPropmt/AddNewPrompt';
-import AllPrompt from '../AllPrompt/AllPrompt';
-import SinglePrompt from "../SinglePrompt/SinglePrompt";
+import { HiCalendar } from "react-icons/hi2";
 import Modal from '../Modal/Modal';
 
 const WriteNow = () => {
   const [title, setTitle] = useState('');
   const [Date, setDate] = useState('');
-  const [isPromptModalVisible, setisPromptModalVisible] = useState(false);
-  const [showAllPrompt, setShowAllPrompt] = useState(false);
-  const [singlePrompt, setSinglePrompt] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const openModal = () => {
-    setisPromptModalVisible(true);
-  }
 
-  const closeModal = () => {
-    setisPromptModalVisible(false);
-  }
 
   const handleDueDateChange = (e) => {
     setDate(e.target.value);
@@ -30,29 +17,19 @@ const WriteNow = () => {
     setTitle(e.target.value);
   };
 
-  const handleGoBack = () => {
-    setShowAllPrompt(false);
-    setSinglePrompt(false);
-  };
-
-  const handlePromptCardClick = () => {
-    setSinglePrompt(true);
-  };
+ 
 
   const openSucessModal = () => {
     setIsModalVisible(true);
-}
+  }
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  }
 
   return (
-    <>
       <div className="px-4 md:px-10 flex flex-col">
-        {singlePrompt ? (
-          <SinglePrompt onGoBack={handleGoBack} />
-        ) : (
-          showAllPrompt ? (
-            <AllPrompt onGoBack={handleGoBack} />
-          ) : (
-            <>
+        
               {/* Featured spark section */}
               <section className="flex flex-col md:flex-row md:mb-10 gap-4 md:gap-[150px]">
                 <p className="text-[#000] font-[700] mb-3 md:mb-0">Featured spark</p>
@@ -81,40 +58,9 @@ const WriteNow = () => {
               </section>
               {/* Featured spark section */}
 
-              <hr className="mx-5" />
+              {/* <hr className="mx-5" /> */}
 
-              {/* Writing prompts section */}
-              <section className='mt-10 flex flex-col'>
-                <div className='flex justify-between '>
-                  <p className="text-[#000] font-[700]" >Writing prompts</p>
-                  
-                  <div className="flex flex-row text-[#52B4AE]  items-center gap-2 mx-[20%] cursor-pointer">
-                    <p onClick={()=> setShowAllPrompt(true)}>View all</p>
-                    <div className="rounded-full border border-[#52B4AE] md:h-[30px] h-[20px] md:w-[30px] w-[20px] flex items-center justify-center">
-                      <HiMiniChevronLeft className="text-[50px]" />
-                    </div>
-                    <div className="rounded-full border border-[#52B4AE] md:h-[30px] h-[20px] md:w-[30px] w-[20px] flex items-center justify-center">
-                      <HiMiniChevronRight className="text-[50px]" />
-                    </div>
-                  </div>
 
-                </div>
-
-                {/* Cards */}
-                <div className='mb-10 max-w-[800px]'>
-                  <PromptCard onClick={handlePromptCardClick} />
-                </div>
-                {/* Cards */}
-
-                {/* Add new prompt */}
-                <div className='flex justify-end mx-[20%]'>
-                  <p className='flex items-center text-[#DF327B] font-[600] cursor-pointer' onClick={openModal}>
-                    <HiPlus width={5} />
-                    Add new prompt
-                  </p>
-                </div>
-                {/* Add new prompt */}
-              </section>
               {/* Writing prompts section */}
               <hr className="mx-5 mt-10" />
 
@@ -148,19 +94,11 @@ const WriteNow = () => {
                    
               </section>
               {/* Submission Guidelines */}
-            </>
-          )
-        )}
-
-        {isPromptModalVisible &&
-          <AddNewPrompt isVisible={isPromptModalVisible} onClose={closeModal} />
-        }
-
+      
         {isModalVisible && 
                 <Modal isVisible={isModalVisible} text="Changes Saved!" onClose={closeModal} />
             }
       </div>
-    </>
   );
 }
 
