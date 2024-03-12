@@ -4,7 +4,7 @@ export const baseURL = "https://papertown.onrender.com";
 
 export const logInUser = async (data) => {
   try {
-    const res = await axios.post(`${baseURL}/api/students/login`, data, {
+    const res = await axios.post(`${baseURL}/api/admin/login`, data, {
       headers: {
         "Content-Type": "application/json",
       },
