@@ -1,6 +1,6 @@
-import axios from "axios"; 
+import axios from "axios";
 
-export const baseURL = "https://papertown.onrender.com";
+export const baseURL = "https://papertown-api.onrender.com";
 
 export const logInUser = async (data) => {
   try {
