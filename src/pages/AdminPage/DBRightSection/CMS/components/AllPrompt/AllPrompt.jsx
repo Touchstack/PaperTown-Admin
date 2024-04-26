@@ -8,6 +8,7 @@ import AllPromptCard from '../AllPromptCard/AllPromtCard';
 import { getAllCategories } from '../../../../../../../services/GetCategoriesService';
 import { getAllPrompt } from '../../../../../../../services/GetPromptService'
 import { getPromptByCategoryId} from '../../../../../../../services/GetPromptByCategoryService'
+import EmptyState from '../EmptyState/EmptyState';
 import  { deletePrompt } from '../../../../../../../services/DeletePromptService'
 import DeleteModal from '../Modal/DeleteModal';
 
@@ -158,9 +159,7 @@ const AllPrompt = ({ onGoBack }) => {
           {/* PropTypes and filter section */}
 
           {promptData.length === 0 ? (
-            <div className="flex justify-center items-center mb-[60px]">
-                <p className="text-5xl">No Prompt Writing Data</p>
-            </div>
+             <EmptyState />
           ) : (
             <AllPromptCard data={promptData} deletePrompt={handleDeleteConfirmation} onPromptClick={handlePromptCardClick} />
           )}

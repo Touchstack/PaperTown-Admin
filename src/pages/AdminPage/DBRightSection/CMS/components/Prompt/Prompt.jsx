@@ -8,6 +8,7 @@ import Modal from '../Modal/Modal';
 import { getAllPrompt } from '../../../../../../../services/GetPromptService';
 import { deletePrompt } from '../../../../../../../services/DeletePromptService'
 import { ClipLoader } from 'react-spinners';
+import EmptyState from '../EmptyState/EmptyState';
 import DeleteModal from '../Modal/DeleteModal';
 
 const Prompt = () => {
@@ -127,9 +128,7 @@ const Prompt = () => {
                   <ClipLoader color="#B44DB8" loading={loading} size={35} />
                 </div>
               ) : promptData.length === 0 ? (
-                <div className="flex justify-center items-center mb-[60px]">
-                  <p className="text-5xl">No Prompt Writing Data</p>
-                </div>
+                 <EmptyState />
               ) : (
                 <div className='mb-10 max-w-[800px]'>
                   <PromptCard data={promptData} deletePrompt={handleDeleteConfirmation} onClick={handlePromptCardClick}  />
