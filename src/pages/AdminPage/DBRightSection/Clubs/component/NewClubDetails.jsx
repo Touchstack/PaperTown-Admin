@@ -1,13 +1,13 @@
 const NewClubDetails = () => {
   return (
     <div className="container mx-auto rounded-md py-4">
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-4">
         {/* School Details */}
-        <div className="py-12 px-8 lg:ml-14 pr-0">
-          <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
+        <div className="py-12 px-8 lg:ml-14">
+          <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
             School Details
           </h3>
-          <div className="py-6 flex items-center justify-center">
+          <div className="py-6">
             <form name="schoolDetails" method="post">
               <div className="mb-6">
                 <label
@@ -21,7 +21,7 @@ const NewClubDetails = () => {
                   id="schoolName"
                   name="schoolName"
                   placeholder=""
-                  className="block w-[350px] h-[55px] text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                  className="block w-full lg:w-[300px] h-[55px] text-[#000000] p-6 font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                 />
               </div>
               <div className="mb-6">
@@ -36,7 +36,7 @@ const NewClubDetails = () => {
                   id="location"
                   name="location"
                   placeholder=""
-                  className="block w-[350px] h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                  className="block w-full lg:w-[300px] h-[55px] p-6 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                 />
               </div>
             </form>
@@ -45,14 +45,14 @@ const NewClubDetails = () => {
 
         {/* Chaperon details */}
         <div className="py-12 px-8 lg:ml-1">
-          <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl sm:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
+          <h3 className="font-Bold mt-4 lg:text-4xl md:text-3xl text-3xl lg:text-left text-center py-4 text-[#000]">
             Chaperon details
           </h3>
           <div className="py-6">
-            <div className="font-Regular max-w-[470px] lg:text-xl md:text-lg sm:text-lg text-lg lg:text-left md:text-left text-center">
+            <div className="font-Regular max-w-full lg:max-w-[470px] lg:text-xl md:text-lg text-lg lg:text-left md:text-left">
               <form name="chaperonDetails" method="post">
-                <div className="flex gap-4 mb-6">
-                  <div className="w-1/2">
+                <div className="flex flex-col lg:flex-row gap-4 mb-6">
+                  <div className="lg:w-1/2">
                     <label
                       htmlFor="firstName"
                       className="block text-sm font-Medium text-[#393939]"
@@ -64,10 +64,10 @@ const NewClubDetails = () => {
                       id="firstName"
                       name="firstName"
                       placeholder=""
-                      className="block w-[180px] h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                      className="block w-full lg:w-[153px] h-[55px] p-6 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                     />
                   </div>
-                  <div className="w-1/2">
+                  <div className="lg:w-1/2">
                     <label
                       htmlFor="lastName"
                       className="block text-sm font-Medium text-[#393939]"
@@ -79,7 +79,7 @@ const NewClubDetails = () => {
                       id="lastName"
                       name="lastName"
                       placeholder=""
-                      className="block w-[180px] h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                      className="block w-full lg:w-[153px] h-[55px] p-6 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                     />
                   </div>
                 </div>
@@ -95,7 +95,7 @@ const NewClubDetails = () => {
                     id="email"
                     name="email"
                     placeholder=""
-                    className="block w-[350px] h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                    className="block w-full lg:w-[320px] h-[55px] p-6 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                   />
                 </div>
                 <div className="mb-6">
@@ -110,7 +110,7 @@ const NewClubDetails = () => {
                     id="contactNumber"
                     name="contactNumber"
                     placeholder=""
-                    className="block w-[350px] h-[55px] p-3 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
+                    className="block w-full lg:w-[320px] h-[55px] p-6 text-[#000000] font-SemiBold rounded-lg bg-[#F4F5F7] sm:text-md outline-none focus:outline-amber-300"
                   />
                 </div>
               </form>
