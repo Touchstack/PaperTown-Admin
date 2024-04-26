@@ -4,19 +4,35 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 import { getAllCategories } from "../../../../../../../services/GetCategoriesService";
+import { createPrompt } from "../../../../../../../services/CreatePromptService";
+import Slider from 'react-slider';
+import '../../../../../.././App.css'
 
-const AddNewPrompt = ({ isVisible, onClose }) => {
+
+const MIN = 6;
+const MAX = 18;
+
+
+const AddNewPrompt = ({ isVisible, onClose, onSuccess }) => {
   const [loading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([])
+  const [selectedCategory, setselectedCategory] = useState({})
+  const [values, setValues] = useState([MIN, MAX])
 
 
   useEffect(() => {
-      getAllCategories().then((res) =>{
-         console.log(res.data);
+      getAllCategories().then((res) => {
+         //console.log(res.data);
          setCategories(res.data)
       })
   }, [])
   
+  const saveCategory = (_id) => {
+     const category = categories.find(item => item._id === _id)
+     if(category) {
+      setselectedCategory(category)
+     }
+  }
 
   const {
     register,
@@ -29,11 +45,37 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
     onClose();
   };
 
-      const onSubmit = async () => {
+      const onSubmit = async (data) => {
         setIsLoading(true)
-        // do something or make an API call
-      };
+        
+        const payLoad = {
+            title : data.title,
+            description : data.description,
+            submission_guidelines : data.submissionGuidelines,
+            resources : data.resources,
+            age: values,
+            category : {
+              id :  selectedCategory._id,
+              name : selectedCategory.name
+            }
+        }
+      
+        const res = await createPrompt(payLoad)
+      
 
+        if(res?.data?.status === true) {
+          onSuccess();
+          //show success modal
+        } else {
+          const errorMessage = res?.response?.data?.message || "Couldn't add Prompt. Please try again.";
+          alert(errorMessage)
+          setIsLoading(false);
+        }
+ 
+      };
+  
+      //console.log('values: ', values)
+  
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-[60] flex items-center justify-center px-5 py-5">
       <div className="w-[500px] max-h-[100vh] bg-[#fff] rounded-[24px] flex flex-col p-5 overflow-y-auto">
@@ -59,21 +101,22 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
               id="category"
               name="category"
               className="mt-1 p-3 w-full bg-[#EFF3F4] border border-gray-300 rounded-[10px] outline-none focus:border-none"
+              onChange={e => saveCategory(e?.target?.value)}
             >
               {/* Add your options here */}
-              <option value="" disabled>
+              <option value="">
                 Select category
               </option>
               {categories.map(category => (
-                  <option key={category._id} value={category.name}>
+                  <option key={category?._id} value={category?._id}>
                     {category.name}
                   </option>
                 ))}
             </select>
 
-            {errors.category && (
+            {errors?.category && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.category.message}
+                {errors?.category?.message}
               </p>
             )}
           </div>
@@ -83,19 +126,30 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
               htmlFor="grade"
               className="text-lg font-medium text-gray-800"
             >
-              Eligible grades
+              Age range
             </label>
-            <input
+              
+            <p>{values[0]} - {values[1]}</p>
+            
+             <Slider 
+               className={"slider"}
+               value={values}
+               onChange={setValues}
+               min={MIN}
+               max={MAX}
+               />
+
+            {/* <input
               {...register("grade", { required: "Grades are required" })}
               type="grade"
               id="grade"
               name="grade"
               placeholder="Enter grade range"
               className="mt-1 p-3 w-full bg-[#EFF3F4] border border-gray-300 rounded-[10px] outline-none focus:border-none"
-            />
-            {errors.grade && (
+            /> */}
+            {errors?.grade && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.grade.message}
+                {errors?.grade?.message}
               </p>
             )}
           </div>
@@ -117,7 +171,7 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
             />
             {errors.title && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.title.message}
+                {errors?.title?.message}
               </p>
             )}
           </div>
@@ -140,7 +194,7 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
             />
             {errors.description && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.description.message}
+                {errors?.description?.message}
               </p>
             )}
           </div>
@@ -163,7 +217,7 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
             />
             {errors.submissionGuidelines && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.submissionGuidelines.message}
+                {errors?.submissionGuidelines?.message}
               </p>
             )}
           </div>
@@ -185,7 +239,7 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
             />
             {errors.resources && (
               <p className="text-red-500 text-sm mt-2">
-                {errors.resources.message}
+                {errors?.resources?.message}
               </p>
             )}
           </div>
@@ -212,6 +266,7 @@ const AddNewPrompt = ({ isVisible, onClose }) => {
 AddNewPrompt.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default AddNewPrompt;
